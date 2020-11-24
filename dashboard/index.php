@@ -6,7 +6,7 @@ include_once ('header.php');
 include_once('functions.php');
 ?>
 
-<h2> Transponder verleihen: </h2>
+<h2> Kalender </h2>
 <form method="post" class="form-group form-control-lg ">
   <div class="form-group row">
     <label for="inputroom" class="col-sm-1 col-form-label">Raum:</label>

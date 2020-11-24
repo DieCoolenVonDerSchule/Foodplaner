@@ -4,7 +4,7 @@ function getConnection(){
 $mysqlhost="localhost";
 $mysqluser="root";
 $mysqlpwd="";
-$mysqldb="transpondersystem";
+$mysqldb="foodplaner";
 
 $connection=mysqli_connect($mysqlhost, $mysqluser, $mysqlpwd, $mysqldb)
     or die("DB Conneciton ERROR!");

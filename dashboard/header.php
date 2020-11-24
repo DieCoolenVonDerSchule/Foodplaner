@@ -19,14 +19,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="index.php">Transponder verleihen</a>
+          <a class="nav-link" href="index.php">Kalender</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="awardedTransponder.php">Ausgeliehende Transponder</a>
+          <a class="nav-link" href="awardedTransponder.php"> Rezepte</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <a href="#" class="btn btn-outline-warning my-2 my-sm-0" role="button" aria-pressed="true">Pförtner Logout</a>
+        <a href="#" class="btn btn-outline-warning my-2 my-sm-0" role="button" aria-pressed="true">Logout</a>
       </form>
     </div>
     </nav>
