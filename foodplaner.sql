@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Erstellungszeit: 24. Nov 2020 um 12:50
+-- Erstellungszeit: 24. Nov 2020 um 12:53
 -- Server-Version: 8.0.22
 -- PHP-Version: 7.4.12
 
