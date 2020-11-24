@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
 
-    <title>Transponder System</title>
+    <title>Foodplaner</title>
 	<link rel="icon" type="image/png" href="favicon.png">
 
   </head>

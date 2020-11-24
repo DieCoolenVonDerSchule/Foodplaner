@@ -28,8 +28,13 @@ include_once('functions.php');
       <input type="bis" class="form-control-lg" name="inputbis" placeholder="bis">
     </div>
   </div>
-  <button formaction="ausleihen.php" type="submit"  class="btn btn-primary mb-3">Transponder ausleihen</button>
-  <button formaction="berechtigung.php" type="submit"  class="btn btn-primary mb-3">Berechtigungen überprüfen</button>
+
+
+
+
+
+
+  <button formaction="recipe.php" type="submit"  class="btn btn-primary mb-3">Gericht hinzufügen</button>
 
 </form>
 
