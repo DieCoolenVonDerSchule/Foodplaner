@@ -31,7 +31,7 @@ CREATE TABLE `calender_entry` (
   `calender_entry_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `group_id` int NOT NULL,
   `recipe_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Daten für Tabelle `calender_entry`
@@ -51,7 +51,7 @@ CREATE TABLE `groups` (
   `group_name` varchar(255) NOT NULL,
   `group_private` tinyint(1) NOT NULL,
   `group_password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Daten für Tabelle `groups`
@@ -69,7 +69,7 @@ INSERT INTO `groups` (`group_id`, `group_name`, `group_private`, `group_password
 CREATE TABLE `ingredients` (
   `ingredients_id` int NOT NULL,
   `ingredients_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,7 @@ CREATE TABLE `ingredients_recipes` (
   `ingredient_id` int NOT NULL,
   `recipe_id` int NOT NULL,
   `quantity` int NOT NULL COMMENT 'Gramm'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -93,8 +93,8 @@ CREATE TABLE `ingredients_recipes` (
 CREATE TABLE `recipes` (
   `recipe_id` int NOT NULL,
   `recipe_name` varchar(255) NOT NULL,
-  `recipe_description` varchar(16000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `recipe_description` varchar(16000) NOT NULL
+) ENGINE=InnoDB;
 
 --
 -- Daten für Tabelle `recipes`
@@ -118,7 +118,7 @@ CREATE TABLE `users` (
   `user_forename` varchar(255) NOT NULL,
   `user_surname` varchar(255) NOT NULL,
   `user_email` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Daten für Tabelle `users`
@@ -138,7 +138,7 @@ INSERT INTO `users` (`user_id`, `user_forename`, `user_surname`, `user_email`) V
 CREATE TABLE `users_groups` (
   `user_id` int NOT NULL,
   `group_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Daten für Tabelle `users_groups`
