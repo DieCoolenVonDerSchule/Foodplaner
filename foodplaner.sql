@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 26. Nov 2020 um 11:40
+-- Erstellungszeit: 26. Nov 2020 um 13:01
 -- Server-Version: 10.4.11-MariaDB
 -- PHP-Version: 7.4.5
 
@@ -45,7 +45,8 @@ INSERT INTO `calender_entry` (`calender_entry_id`, `calender_entry_date`, `group
 (4, '2020-11-30', 1, 2),
 (5, '2020-12-24', 1, 5),
 (16, '0000-00-00', 1, 5),
-(17, '2020-11-27', 1, 5);
+(17, '2020-11-27', 1, 5),
+(18, '2020-11-28', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -78,6 +79,67 @@ CREATE TABLE `ingredients` (
   `ingredients_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Daten für Tabelle `ingredients`
+--
+
+INSERT INTO `ingredients` (`ingredients_id`, `ingredients_name`) VALUES
+(1, 'Reis'),
+(2, 'Zwiebeln'),
+(3, 'Hackfleisch'),
+(4, 'Brot'),
+(5, 'Brötchen'),
+(6, 'Salz'),
+(7, 'Pfeffer'),
+(8, 'Knoblauch'),
+(9, 'Butter'),
+(10, 'Lauchzwiebeln'),
+(11, 'Pilze'),
+(12, 'Brühe'),
+(13, 'Pfirsiche'),
+(14, 'Curry'),
+(15, 'Pfirsichsaft'),
+(16, 'Porree'),
+(17, 'Wasser'),
+(18, 'Hähnchenbrustfilet'),
+(19, 'Öl'),
+(20, 'Paprika'),
+(21, 'Champignons'),
+(22, 'Margarine'),
+(23, 'Mehl'),
+(24, 'Currypulver'),
+(25, 'Streichkäse'),
+(26, 'Sahne'),
+(27, 'Lauch'),
+(28, 'Teriyakisauce'),
+(29, 'Currypaste'),
+(30, 'Petersilie'),
+(31, 'Hefe'),
+(32, 'Zucker'),
+(33, 'Ei'),
+(34, 'Muskat'),
+(35, 'Speck'),
+(36, 'Käse'),
+(37, 'Federweißer'),
+(38, 'Weißwein'),
+(39, 'Kartoffeln'),
+(40, 'Milch'),
+(41, 'Schweinemedaillons'),
+(42, 'Rotwein'),
+(43, 'Honig'),
+(44, 'Bratenfond'),
+(45, 'Lebkuchen'),
+(46, 'Rosenkohl'),
+(47, 'Semmelbrösel'),
+(48, 'Bratensauce'),
+(49, 'Kuvertüre'),
+(50, 'Kokosfett'),
+(51, 'Vanillinzucker'),
+(52, 'Butterkekse'),
+(53, 'Schokoladencreme'),
+(54, 'Orangenschale'),
+(55, 'Alkohol');
+
 -- --------------------------------------------------------
 
 --
@@ -88,8 +150,57 @@ CREATE TABLE `ingredients_recipes` (
   `ingredients_recipes_id` int(11) NOT NULL,
   `ingredient_id` int(11) NOT NULL,
   `recipe_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL COMMENT 'Gramm'
+  `quantity` int(11) NOT NULL COMMENT 'Gramm',
+  `recipe_unit` enum('g','ml','Stk','Prise','Zehe') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `ingredients_recipes`
+--
+
+INSERT INTO `ingredients_recipes` (`ingredients_recipes_id`, `ingredient_id`, `recipe_id`, `quantity`, `recipe_unit`) VALUES
+(1, 1, 1, 200, 'g'),
+(2, 2, 1, 1, 'Stk'),
+(3, 3, 1, 400, 'g'),
+(4, 5, 1, 2, 'Stk'),
+(5, 6, 1, 1, 'Prise'),
+(6, 7, 1, 1, 'Prise'),
+(7, 8, 1, 1, 'Zehe'),
+(8, 9, 1, 20, 'g'),
+(9, 10, 1, 2, 'Stk'),
+(10, 11, 1, 20, 'g'),
+(11, 12, 2, 200, 'ml'),
+(12, 14, 2, 20, 'g'),
+(13, 18, 2, 500, 'g'),
+(14, 17, 2, 500, 'ml'),
+(15, 16, 2, 2, 'Stk'),
+(16, 20, 2, 2, 'Stk'),
+(17, 7, 2, 1, 'Prise'),
+(18, 23, 5, 200, 'g'),
+(19, 31, 5, 20, 'g'),
+(20, 32, 5, 100, 'g'),
+(21, 6, 5, 1, 'Prise'),
+(22, 34, 5, 1, 'Prise'),
+(23, 33, 5, 2, 'Stk'),
+(24, 2, 5, 2, 'Stk'),
+(25, 41, 6, 500, 'g'),
+(26, 39, 6, 400, 'g'),
+(27, 6, 6, 5, 'g'),
+(28, 34, 6, 1, 'Prise'),
+(29, 26, 6, 10, 'ml'),
+(30, 40, 6, 100, 'ml'),
+(31, 19, 6, 10, 'ml'),
+(32, 42, 6, 20, 'ml'),
+(33, 49, 7, 2, 'Stk'),
+(34, 52, 7, 400, 'g'),
+(35, 50, 7, 10, 'ml'),
+(36, 26, 7, 20, 'ml'),
+(37, 54, 7, 10, 'g'),
+(38, 39, 8, 1000, 'g'),
+(39, 2, 8, 5, 'Stk'),
+(40, 19, 8, 200, 'ml'),
+(41, 6, 8, 20, 'g'),
+(42, 7, 8, 20, 'g');
 
 -- --------------------------------------------------------
 
@@ -217,7 +328,7 @@ ALTER TABLE `users_groups`
 -- AUTO_INCREMENT für Tabelle `calender_entry`
 --
 ALTER TABLE `calender_entry`
-  MODIFY `calender_entry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `calender_entry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT für Tabelle `groups`
@@ -229,13 +340,13 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT für Tabelle `ingredients`
 --
 ALTER TABLE `ingredients`
-  MODIFY `ingredients_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ingredients_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT für Tabelle `ingredients_recipes`
 --
 ALTER TABLE `ingredients_recipes`
-  MODIFY `ingredients_recipes_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ingredients_recipes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT für Tabelle `recipes`
