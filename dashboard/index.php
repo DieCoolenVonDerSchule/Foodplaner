@@ -17,7 +17,7 @@ for($i = 0; $i<7; $i++){
 }
 
 while ($data = mysqli_fetch_array($query)) {
-  array_push($sorted[$data['Daydiff']], $data['recipe_name'], $data['calender_entry_date']);
+  array_push($sorted[$data['Daydiff']], $data['recipe_name']);
 }
 
 $dayNames = array("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag");
@@ -48,7 +48,13 @@ $dayNames = array("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Sa
 
 foreach($sorted as $sortedData) { ?>
 
-            <td><?php if(!empty($sortedData)) echo $sortedData[0]; ?></td>
+            <td><?php
+            if(!empty($sortedData)){
+              $entry = "";
+              foreach($sortedData as $point) $entry = $entry.$point."<br>";
+               echo $entry;
+            }
+            ?></td>
 
       <?php } ?>
       </tbody>
