@@ -21,13 +21,15 @@ include_once('functions.php');
         <span class="text-muted">Zutaten</span>
       </h4>
       <ul class="list-group mb-3">
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
+
           <?php
-          $data = getRecipeByIDWithUnits($_GET['id']);
+          $query = getRecipeByIDWithUnits($_GET['id']);
+
           while ($data = mysqli_fetch_array($query)) { ?>
 
+              <li class="list-group-item d-flex justify-content-between lh-condensed"><?php echo $data['quantity'].' '.$data['recipe_unit'].' '.$data['ingredients_name']; ?></li>
 
-                      <span class="text-muted"><?php echo $recipe['recipe_zutaten']; ?></span>
+
 
                 <?php } ?>
         </li>

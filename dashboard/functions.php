@@ -29,10 +29,9 @@ function getRecipeByID($id){
 
 function getRecipeByIDWithUnits($id){
     $con = getConnection();
-    $sql = "SELECT * FROM recipes WHERE recipe_id = $id";
+    $sql = "SELECT * FROM ingredients_recipes JOIN ingredients ON (ingredients_recipes.ingredient_id = ingredients.ingredients_id) WHERE ingredients_recipes.recipe_id = $id;";
     $query = mysqli_query($con, $sql);
-    $data = mysqli_fetch_array($query);
-    return $data;
+    return $query;
 }
 
 function setNewCalenderEntry($recipe_id, $plandate) { // Group_id muss noch ergänzt werden
