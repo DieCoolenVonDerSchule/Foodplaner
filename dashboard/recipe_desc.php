@@ -10,7 +10,7 @@ include_once('functions.php');
 <body class="bg-light">
     <div class="container">
   <div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <img class="d-block mx-auto mb-4" src="<?php echo $recipe['recipe_image']; ?>" alt="" width="200" height="180">
     <h2><?php echo $recipe['recipe_name']; ?></h2>
     <p class="lead"><?php echo $recipe['recipe_description']; ?></p>
   </div>

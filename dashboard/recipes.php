@@ -18,9 +18,10 @@ include_once('functions.php');
           while ($data = mysqli_fetch_array($query)) {
            ?>
 
+
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img width="100%" src="<?php echo 'https://img.chefkoch-cdn.de/rezepte/1216401227258521/bilder/809824/crop-600x400/reispfanne.jpg'; ?>"/>
+            <img width="100%" src="<?php echo $data['recipe_image']; ?>"/>
             <div class="card-body">
               <p class="card-text">    <?php echo $data['recipe_name']; ?></p>
               <div class="d-flex justify-content-between align-items-center">
@@ -32,6 +33,7 @@ include_once('functions.php');
             </div>
           </div>
         </div>
+    
 
     <?php } ?>
 

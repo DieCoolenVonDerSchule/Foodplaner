@@ -27,4 +27,12 @@ function getRecipeByID($id){
     return $data;
 }
 
+function setNewCalenderEntry($recipe_id, $plandate) { // Group_id muss noch ergänzt werden
+  $con = getConnection();
+  echo $recipe_id;
+  $sql = "INSERT INTO `calender_entry` (`calender_entry_id`, `calender_entry_date`, `group_id`, `recipe_id`) VALUES (NULL, '{$plandate}', '1', {$recipe_id});";
+  $query = mysqli_query($con, $sql);
+  return $query;
+}
+
 ?>

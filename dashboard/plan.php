@@ -2,6 +2,11 @@
 
 include_once ('header.php');
 include_once ('functions.php');
+
+$recipe_id = $_GET['id'];
+var_dump($recipe_id);
+
+
 ?>
 
 <div class="bootstrap-iso">
@@ -10,10 +15,11 @@ include_once ('functions.php');
    <div class="col-md-6 col-sm-6 col-xs-12">
 
     <!-- Form code begins -->
-    <form method="post">
+    <form class="needs-validation" novalidate action="confirm.php" method="POST">
       <div class="form-group"> <!-- Date input -->
         <label class="control-label" for="date">Date</label>
-        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+        <input class="form-control" id="date" name="date" placeholder="DD/MM/YYY" type="text"/>
+        <input name='recipe_id' value='<?php echo $recipe_id ?>' />
       </div>
       <div class="form-group"> <!-- Submit button -->
         <button class="btn btn-primary " name="submit" type="submit">Submit</button>
@@ -31,7 +37,7 @@ include_once ('functions.php');
       var date_input=$('input[name="date"]'); //our date input has the name "date"
       var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
       var options={
-        format: 'mm/dd/yyyy',
+        format: 'yyyy-mm-dd',
         container: container,
         todayHighlight: true,
         autoclose: true,
