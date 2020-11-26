@@ -4,7 +4,7 @@ include_once ('header.php');
 include_once ('functions.php');
 
 $recipe_id = $_GET['id'];
-var_dump($recipe_id);
+
 
 
 ?>
@@ -19,7 +19,7 @@ var_dump($recipe_id);
       <div class="form-group"> <!-- Date input -->
         <label class="control-label" for="date">Date</label>
         <input class="form-control" id="date" name="date" placeholder="DD/MM/YYY" type="text"/>
-        <input name='recipe_id' value='<?php echo $recipe_id ?>' />
+         <input type="hidden" name='recipe_id' value='<?php echo $recipe_id ?>' />
       </div>
       <div class="form-group"> <!-- Submit button -->
         <button class="btn btn-primary " name="submit" type="submit">Submit</button>

@@ -10,13 +10,9 @@ if (isset($_POST['submit'])){
 
     setNewCalenderEntry($recipe_id, $plandate);
 }
-var_dump($_POST);
-//var_dump($plandate);
-//var_dump($recipe_id);
 
-
-// header('location: index.php');
-//exit;
+header('location: index.php');
+exit;
 
 
 ?>
