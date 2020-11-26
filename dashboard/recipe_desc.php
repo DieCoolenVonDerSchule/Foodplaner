@@ -22,10 +22,14 @@ include_once('functions.php');
       </h4>
       <ul class="list-group mb-3">
         <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0"><?php echo $recipe['recipe_name']; ?></h6>
-          </div>
-          <span class="text-muted"><?php echo $recipe['recipe_description']; ?> €</span>
+          <?php
+          $data = getRecipeByIDWithUnits($_GET['id']);
+          while ($data = mysqli_fetch_array($query)) { ?>
+
+
+                      <span class="text-muted"><?php echo $recipe['recipe_zutaten']; ?></span>
+
+                <?php } ?>
         </li>
       </ul>
 
