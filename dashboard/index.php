@@ -51,7 +51,7 @@ foreach($sorted as $sortedData) { ?>
             <td><?php
             if(!empty($sortedData)){
               $entry = "";
-              foreach($sortedData as $point) $entry = $entry.$point."<br>";
+              foreach($sortedData as $point) $entry = $entry.$point.'<img src="https://p7.hiclipart.com/preview/915/325/315/rubbish-bins-waste-paper-baskets-computer-icons-recycling-bin-trash-can-icons-no-attribution.jpg" style="width:32px;height:32px"> <br>';
                echo $entry;
             }
             ?></td>
