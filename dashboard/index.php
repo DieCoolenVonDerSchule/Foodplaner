@@ -5,7 +5,7 @@ include_once ('header.php');
 
 include_once('functions.php');
 
-$sql='SELECT recipe_name, calender_entry_date, datediff(calender_entry_date, CURDATE()) as Daydiff FROM calender_entry JOIN recipes ON (calender_entry.recipe_id = recipes.recipe_id) WHERE calender_entry_date >= CURDATE() AND calender_entry_date < DATE_ADD(CURDATE(), INTERVAL 7 DAY)';
+$sql='SELECT  calender_entry_id, recipe_name, calender_entry_date, datediff(calender_entry_date, CURDATE()) as Daydiff FROM calender_entry JOIN recipes ON (calender_entry.recipe_id = recipes.recipe_id) WHERE calender_entry_date >= CURDATE() AND calender_entry_date < DATE_ADD(CURDATE(), INTERVAL 7 DAY)';
 
 $con = getConnection();
 $query = mysqli_query($con, $sql);
@@ -13,11 +13,12 @@ $query = mysqli_query($con, $sql);
 $sorted = array();
 
 for($i = 0; $i<7; $i++){
-  array_push($sorted, array());
+  array_push($sorted, array(array(), array()));
 }
 
 while ($data = mysqli_fetch_array($query)) {
-  array_push($sorted[$data['Daydiff']], $data['recipe_name']);
+  array_push($sorted[$data['Daydiff']][0], $data['calender_entry_id']);
+  array_push($sorted[$data['Daydiff']][1], $data['recipe_name']);
 }
 
 $dayNames = array("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag");
@@ -49,9 +50,11 @@ $dayNames = array("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Sa
 foreach($sorted as $sortedData) { ?>
 
             <td><?php
-            if(!empty($sortedData)){
+            if(!empty($sortedData[1])){
               $entry = "";
-              foreach($sortedData as $point) $entry = $entry.$point.'<img src="https://p7.hiclipart.com/preview/915/325/315/rubbish-bins-waste-paper-baskets-computer-icons-recycling-bin-trash-can-icons-no-attribution.jpg" style="width:32px;height:32px"> <br>';
+              for($i = 0; $i<count($sortedData[1]); $i++){
+                $entry = $entry.$sortedData[1][$i].'<a href="deleteEntry.php?id='.$sortedData[0][$i].'"><img src="https://p7.hiclipart.com/preview/915/325/315/rubbish-bins-waste-paper-baskets-computer-icons-recycling-bin-trash-can-icons-no-attribution.jpg" style="width:32px;height:32px"></a><br>';
+              }
                echo $entry;
             }
             ?></td>
