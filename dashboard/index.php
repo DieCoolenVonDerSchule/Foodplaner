@@ -5,7 +5,14 @@ include_once ('header.php');
 
 include_once('functions.php');
 
-$sql='SELECT  calender_entry_id, recipe_name, calender_entry_date, datediff(calender_entry_date, CURDATE()) as Daydiff FROM calender_entry JOIN recipes ON (calender_entry.recipe_id = recipes.recipe_id) WHERE calender_entry_date >= CURDATE() AND calender_entry_date < DATE_ADD(CURDATE(), INTERVAL 7 DAY)';
+$sql='SELECT  calender_entry_id, recipe_name, calender_entry_date, datediff(calender_entry_date, CURDATE()) as Daydiff 
+FROM calender_entry 
+JOIN recipes ON (calender_entry.recipe_id = recipes.recipe_id) 
+JOIN users_groups ON (calender_entry.group_id = users_groups.group_id)
+JOIN users ON (users_groups.user_id = users.user_id)
+WHERE calender_entry_date >= CURDATE() 
+AND calender_entry_date < DATE_ADD(CURDATE(), INTERVAL 7 DAY) 
+AND users.user_id = '.$_SESSION['user_id'];
 
 $con = getConnection();
 $query = mysqli_query($con, $sql);

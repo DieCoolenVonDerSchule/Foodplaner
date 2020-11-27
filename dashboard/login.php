@@ -8,9 +8,11 @@ if(isset($_GET['login'])) {
     $user_username = $_POST['user_username'];
     $user_passwort = $_POST['user_password'];
 
-    $statement = $pdo->prepare("SELECT * FROM USERS WHERE user_username = :user_username");
+    $statement = $pdo->prepare("SELECT * FROM users WHERE user_username = :user_username");
     $result = $statement->execute(array('user_username' => $user_username));
     $user = $statement->fetch();
+
+    var_dump($user);
 
     //Überprüfung des Passworts
     if ($user !== false && $user['user_password'] == $user_passwort) {
