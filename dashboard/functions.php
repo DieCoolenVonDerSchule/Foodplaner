@@ -19,6 +19,13 @@ function getRecipes() {
   return $query;
 }
 
+function getAllGroups() {
+  $con = getConnection();
+  $sql = 'SELECT * FROM groups';
+  $query = mysqli_query($con,$sql);
+  return $query;
+}
+
 function getRecipeByID($id){
     $con = getConnection();
     $sql = "SELECT * FROM recipes WHERE recipe_id = $id";
