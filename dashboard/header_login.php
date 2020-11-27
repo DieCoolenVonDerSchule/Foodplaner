@@ -23,27 +23,20 @@
 	<link rel="icon" type="image/png" href="favicon.png">
 
   </head>
+
   <body>
-    <!-- Navbar -->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.php">Kalender</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="recipes.php">Rezepte</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="shoppingList.php">Einkaufsliste</a>
-        </li>
+        
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <a href="groups.php" class="btn btn-primary my-2 my-sm-0" role="button" aria-pressed="true">Gruppen</a>
+        <a href="register.php" class="btn btn-outline-warning my-2 my-sm-0" role="button" aria-pressed="true">Register</a>
       </form>
       <form class="form-inline my-2 my-lg-0">
-        <a href="login.php" class="btn btn-outline-warning my-2 my-sm-0" role="button" aria-pressed="true">Logout</a>
+        <a href="login.php" class="btn btn-outline-warning my-2 my-sm-0" role="button" aria-pressed="true">Login</a>
       </form>
     </div>
     </nav>
