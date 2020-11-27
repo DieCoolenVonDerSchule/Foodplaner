@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 27. Nov 2020 um 11:16
+-- Erstellungszeit: 27. Nov 2020 um 12:42
 -- Server-Version: 10.4.11-MariaDB
 -- PHP-Version: 7.4.5
 
@@ -232,17 +232,19 @@ CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `user_forename` varchar(255) NOT NULL,
   `user_surname` varchar(255) NOT NULL,
-  `user_email` varchar(255) NOT NULL
+  `user_username` varchar(255) NOT NULL,
+  `user_password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Daten für Tabelle `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_forename`, `user_surname`, `user_email`) VALUES
-(1, 'Marc Kevin', 'Zenzen', 'marckevinzenzen@gmx.de'),
-(2, 'Stefan ', 'Steinhauer', 'stefansteinhauer@gmx.de'),
-(3, 'Luca', 'Stamos', 'lucastamos@gmx.de');
+INSERT INTO `users` (`user_id`, `user_forename`, `user_surname`, `user_username`, `user_password`) VALUES
+(1, 'Marc Kevin', 'Zenzen', 'zenska', 'test123'),
+(2, 'Stefan ', 'Steinhauer', 'pfropfen', 'test123'),
+(3, 'Luca', 'Stamos', 'loki', 'test123'),
+(5, 'hans1', 'dietmar1', 'heini', 'test');
 
 -- --------------------------------------------------------
 
@@ -353,7 +355,7 @@ ALTER TABLE `recipes`
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints der exportierten Tabellen
