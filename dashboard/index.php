@@ -5,6 +5,11 @@ include_once ('header.php');
 
 include_once('functions.php');
 
+if(!isset($_SESSION['user_id'])){
+  header('location: login.php');
+  exit;
+}
+
 $sql='SELECT  calender_entry_id, recipe_name, calender_entry_date, datediff(calender_entry_date, CURDATE()) as Daydiff 
 FROM calender_entry 
 JOIN recipes ON (calender_entry.recipe_id = recipes.recipe_id) 

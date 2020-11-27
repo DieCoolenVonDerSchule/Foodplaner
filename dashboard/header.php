@@ -43,7 +43,7 @@
         <a href="groups.php" class="btn btn-primary my-2 my-sm-0" role="button" aria-pressed="true">Gruppen</a>
       </form>
       <form class="form-inline my-2 my-lg-0">
-        <a href="login.php" class="btn btn-outline-warning my-2 my-sm-0" role="button" aria-pressed="true">Logout</a>
+        <a href="logout.php" class="btn btn-outline-warning my-2 my-sm-0" role="button" aria-pressed="true">Logout</a>
       </form>
     </div>
     </nav>

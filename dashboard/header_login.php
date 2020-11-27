@@ -36,7 +36,7 @@
         <a href="register.php" class="btn btn-outline-warning my-2 my-sm-0" role="button" aria-pressed="true">Register</a>
       </form>
       <form class="form-inline my-2 my-lg-0">
-        <a href="login.php" class="btn btn-outline-warning my-2 my-sm-0" role="button" aria-pressed="true">Login</a>
+        <a href="logout.php" class="btn btn-outline-warning my-2 my-sm-0" role="button" aria-pressed="true">Login</a>
       </form>
     </div>
     </nav>
