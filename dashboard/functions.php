@@ -27,6 +27,19 @@ function getRecipeByID($id){
     return $data;
 }
 
+function getShoppingListData(){
+    $con = getConnection();
+    $sql = "SELECT ingredients.ingredients_name, SUM(ingredients_recipes.quantity) as quantity, ingredients_recipes.recipe_unit
+            FROM ingredients_recipes JOIN ingredients
+            ON ingredients_recipes.ingredient_id = ingredients.ingredients_id JOIN recipes
+            ON recipes.recipe_id = ingredients_recipes.recipe_id JOIN calender_entry
+            ON calender_entry.recipe_id = recipes.recipe_id
+            WHERE calender_entry.calender_entry_date <= NOW() + INTERVAL 7 DAY
+            group BY ingredients.ingredients_id;";
+    $query = mysqli_query($con, $sql);
+    return $query;
+}
+
 function getRecipeByIDWithUnits($id){
     $con = getConnection();
     $sql = "SELECT * FROM ingredients_recipes JOIN ingredients ON (ingredients_recipes.ingredient_id = ingredients.ingredients_id) WHERE ingredients_recipes.recipe_id = $id;";

@@ -33,7 +33,10 @@
           <a class="nav-link" href="index.php">Kalender</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="recipes.php"> Rezepte</a>
+          <a class="nav-link" href="recipes.php">Rezepte</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="shoppingList.php">Einkaufsliste</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
