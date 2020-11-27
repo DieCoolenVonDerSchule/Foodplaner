@@ -19,9 +19,11 @@ function getRecipes() {
   return $query;
 }
 
-function getAllGroups() {
+function getAllGroups($id) {
   $con = getConnection();
-  $sql = 'SELECT * FROM groups';
+  $sql = "SELECT groups.group_name, groups.group_id, (users_groups.user_id = $id AND users_groups.user_id IS Not NULL) as joined
+From groups Left Join users_groups ON groups.group_id = users_groups.group_id
+GROUP By groups.group_id;";
   $query = mysqli_query($con,$sql);
   return $query;
 }
