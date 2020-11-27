@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 26. Nov 2020 um 13:01
+-- Erstellungszeit: 27. Nov 2020 um 11:16
 -- Server-Version: 10.4.11-MariaDB
 -- PHP-Version: 7.4.5
 
@@ -39,14 +39,9 @@ CREATE TABLE `calender_entry` (
 --
 
 INSERT INTO `calender_entry` (`calender_entry_id`, `calender_entry_date`, `group_id`, `recipe_id`) VALUES
-(1, '2020-11-24', 1, 1),
 (2, '2020-11-27', 1, 7),
 (3, '2020-11-28', 1, 8),
-(4, '2020-11-30', 1, 2),
-(5, '2020-12-24', 1, 5),
-(16, '0000-00-00', 1, 5),
-(17, '2020-11-27', 1, 5),
-(18, '2020-11-28', 1, 1);
+(22, '2020-11-29', 1, 7);
 
 -- --------------------------------------------------------
 
@@ -328,7 +323,7 @@ ALTER TABLE `users_groups`
 -- AUTO_INCREMENT für Tabelle `calender_entry`
 --
 ALTER TABLE `calender_entry`
-  MODIFY `calender_entry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `calender_entry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT für Tabelle `groups`
