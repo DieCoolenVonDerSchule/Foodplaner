@@ -3,13 +3,14 @@
 include_once ('header.php');
 include_once ('functions.php');
 
+session_start();
 ?>
 
 <h2> Einkaufsliste </h2>
 <ul class="list-group mb-3">
 
     <?php
-    $query = getShoppingListData();
+    $query = getShoppingListData($_SESSION['user_id']);
 
     while ($data = mysqli_fetch_array($query)) { ?>
 
