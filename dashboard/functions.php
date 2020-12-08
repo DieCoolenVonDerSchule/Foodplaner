@@ -72,10 +72,10 @@ function getRecipeByIDWithUnits($id){
     return $query;
 }
 
-function setNewCalenderEntry($recipe_id, $plandate) { // Group_id muss noch ergänzt werden
+function setNewCalenderEntry($recipe_id, $plandate, $group_id) { // Group_id muss noch ergänzt werden
   $con = getConnection();
   echo $recipe_id;
-  $sql = "INSERT INTO `calender_entry` (`calender_entry_id`, `calender_entry_date`, `group_id`, `recipe_id`) VALUES (NULL, '{$plandate}', '1', {$recipe_id});";
+  $sql = "INSERT INTO `calender_entry` (`calender_entry_id`, `calender_entry_date`, `group_id`, `recipe_id`) VALUES (NULL, '{$plandate}', '{$group_id}', {$recipe_id});";
   $query = mysqli_query($con, $sql);
   return $query;
 }

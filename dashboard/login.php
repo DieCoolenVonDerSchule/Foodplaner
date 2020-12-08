@@ -12,8 +12,6 @@ if(isset($_GET['login'])) {
     $result = $statement->execute(array('user_username' => $user_username));
     $user = $statement->fetch();
 
-    var_dump($user);
-
     //Überprüfung des Passworts
     if ($user !== false && $user['user_password'] == $user_passwort) {
         $_SESSION['user_id'] = $user['user_id'];

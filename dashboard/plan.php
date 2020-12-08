@@ -1,11 +1,15 @@
 <?php
+session_start();
 
 include_once ('header.php');
 include_once ('functions.php');
 
 $recipe_id = $_GET['id'];
 
+$sql= 'SELECT groups.group_id, groups.group_name FROM users_groups JOIN groups ON (users_groups.group_id = groups.group_id) WHERE users_groups.user_id ='.$_SESSION['user_id'];
 
+$con = getConnection();
+$query = mysqli_query($con, $sql);
 
 ?>
 
@@ -19,6 +23,14 @@ $recipe_id = $_GET['id'];
       <div class="form-group"> <!-- Date input -->
         <label class="control-label" for="date">Date</label>
         <input class="form-control" id="date" name="date" placeholder="DD/MM/YYY" type="text"/>
+        <select name="group">
+          <?php
+            while ($data = mysqli_fetch_array($query)) {
+              echo "<option value='".$data['group_id']."'>".$data['group_name']."</option>";
+            }
+          ?>
+        
+        </select>
          <input type="hidden" name='recipe_id' value='<?php echo $recipe_id ?>' />
       </div>
       <div class="form-group"> <!-- Submit button -->
