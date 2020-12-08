@@ -21,9 +21,9 @@ function getRecipes() {
 
 function getAllGroups($id) {
   $con = getConnection();
-  $sql = "SELECT groups.group_name, groups.group_id, (users_groups.user_id = $id AND users_groups.user_id IS Not NULL) as joined
-From groups Left Join users_groups ON groups.group_id = users_groups.group_id
-GROUP By groups.group_id;";
+  $sql = "SELECT groups.group_name, groups.group_id, (dunno.user_id = $id AND dunno.user_id IS NOT NULL) as joined
+From groups LEFT Join (SELECT * From users_groups WHERE user_id = $id) as dunno ON groups.group_id = dunno.group_id
+GROUP By groups.group_id";
   $query = mysqli_query($con,$sql);
   return $query;
 }

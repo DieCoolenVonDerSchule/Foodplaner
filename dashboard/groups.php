@@ -12,15 +12,14 @@ session_start();
     while ($data = mysqli_fetch_array($query)) {
 
         if($data['joined']) {
-          ?>
-          <li class="list-group-item d-flex justify-content-between lh-condensed"><?php echo $data['group_name']; ?>
-            <a type="button" class="btn btn-sm btn-outline-danger" href="groupLeave.php?group_id=<?php echo $data['group_id']; ?>&user_id=<?php echo $_SESSION['user_id'] ?>">austreten</a></li>
-          <?php
+
+          echo '<li class="list-group-item d-flex justify-content-between lh-condensed">'.$data['group_name'].'
+            <a type="button" class="btn btn-sm btn-outline-danger" href="groupLeave.php?group_id='.$data['group_id'].'&user_id='.$_SESSION['user_id'].'">austreten</a></li>';
+
         } else {
-          ?>
-          <li class="list-group-item d-flex justify-content-between lh-condensed"><?php echo $data['group_name']; ?>
-            <a type="button" class="btn btn-sm btn-outline-success" href="groupJoin.php?group_id=<?php echo $data['group_id']; ?>&user_id=<?php echo $_SESSION['user_id'] ?>">beitreten</a></li>
-          <?php
+
+          echo '<li class="list-group-item d-flex justify-content-between lh-condensed">'.$data['group_name'].'
+            <a type="button" class="btn btn-sm btn-outline-success" href="groupJoin.php?group_id='.$data['group_id'].'&user_id='.$_SESSION['user_id'].'">beitreten</a></li>';
         }
         ?>
 
