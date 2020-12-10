@@ -3,7 +3,7 @@
 include_once ('header.php');
 include_once('functions.php');
 ?>
-
+<div class="col-sm-12">
 <h2> Rezepte </h2>
 
   <main role="main">
@@ -33,13 +33,14 @@ include_once('functions.php');
             </div>
           </div>
         </div>
-    
+
 
     <?php } ?>
 
       </div>
     </div>
   </div>
+</div>
 
 </main>
 

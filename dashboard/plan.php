@@ -21,18 +21,20 @@ $query = mysqli_query($con, $sql);
     <!-- Form code begins -->
     <form class="needs-validation" novalidate action="confirm.php" method="POST">
       <div class="form-group"> <!-- Date input -->
-        <label class="control-label" for="date">Date</label>
-        <input class="form-control" id="date" name="date" placeholder="DD/MM/YYY" type="text"/>
-        <select name="group">
+        <label class="control-label" for="date">Datum:</label><br>
+        <input class="form-control col-md-4" id="date" name="date" placeholder="DD/MM/YYY" type="text"/><br><br>
+        <label class="control-label" for="date">Gruppe:</label><br>
+        <select name="group" class="form-control col-md-4">
           <?php
             while ($data = mysqli_fetch_array($query)) {
               echo "<option value='".$data['group_id']."'>".$data['group_name']."</option>";
             }
           ?>
-        
+
         </select>
          <input type="hidden" name='recipe_id' value='<?php echo $recipe_id ?>' />
       </div>
+      <br><br>
       <div class="form-group"> <!-- Submit button -->
         <button class="btn btn-primary " name="submit" type="submit">Submit</button>
       </div>

@@ -59,7 +59,7 @@ function getShoppingListData($user_id){
             ON calender_entry.recipe_id = recipes.recipe_id JOIN groups
             ON calender_entry.group_id = groups.group_id JOIN users_groups
             ON groups.group_id = users_groups.group_id
-            WHERE calender_entry.calender_entry_date <= NOW() + INTERVAL 7 DAY AND calender_entry.calender_entry_date >= NOW() AND users_groups.user_id = $user_id
+            WHERE calender_entry.calender_entry_date <= CURDATE() + INTERVAL 7 DAY AND calender_entry.calender_entry_date >= CURDATE() AND users_groups.user_id = $user_id
             group BY ingredients.ingredients_id;";
     $query = mysqli_query($con, $sql);
     return $query;

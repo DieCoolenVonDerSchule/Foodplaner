@@ -10,13 +10,13 @@ if(!isset($_SESSION['user_id'])){
   exit;
 }
 
-$sql='SELECT  calender_entry_id, recipe_name, calender_entry_date, datediff(calender_entry_date, CURDATE()) as Daydiff 
-FROM calender_entry 
-JOIN recipes ON (calender_entry.recipe_id = recipes.recipe_id) 
+$sql='SELECT  calender_entry_id, recipe_name, calender_entry_date, datediff(calender_entry_date, CURDATE()) as Daydiff
+FROM calender_entry
+JOIN recipes ON (calender_entry.recipe_id = recipes.recipe_id)
 JOIN users_groups ON (calender_entry.group_id = users_groups.group_id)
 JOIN users ON (users_groups.user_id = users.user_id)
-WHERE calender_entry_date >= CURDATE() 
-AND calender_entry_date < DATE_ADD(CURDATE(), INTERVAL 7 DAY) 
+WHERE calender_entry_date >= CURDATE()
+AND calender_entry_date < DATE_ADD(CURDATE(), INTERVAL 7 DAY)
 AND users.user_id = '.$_SESSION['user_id'];
 
 $con = getConnection();
@@ -36,10 +36,11 @@ while ($data = mysqli_fetch_array($query)) {
 $dayNames = array("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag");
 
 ?>
-
-<h2> Kalender </h2>
+<div class="col-sm-12">
+  <h2> Kalender </h2>
+</div>
 <form method="post" class="form-group form-control-lg ">
-  
+
 
 <table class="table table-striped table-bordered" style="width:100%">
 
@@ -80,6 +81,7 @@ foreach($sorted as $sortedData) { ?>
   <button type="submit"  class="btn btn-primary mb-3" formaction="recipes.php">Gericht hinzufügen</button>
 
 </form>
+
 
 
 
