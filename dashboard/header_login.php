@@ -26,16 +26,16 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        
+
       </ul>
-      <form class="form-inline my-2 my-lg-0">
+      <form class="form-inline my-2 my-sm-0">
         <a href="register.php" class="btn btn-outline-warning my-2 my-sm-0" role="button" aria-pressed="true">Register</a>
       </form>
-      <form class="form-inline my-2 my-lg-0">
+      <form class="form-inline my-2 my-sm-0">
         <a href="logout.php" class="btn btn-outline-warning my-2 my-sm-0" role="button" aria-pressed="true">Login</a>
       </form>
     </div>
